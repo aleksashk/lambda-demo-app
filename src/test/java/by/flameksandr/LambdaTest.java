@@ -105,23 +105,38 @@ public class LambdaTest {
 
     //predicate
 
-    @Test
-    public void testPredicate() throws IOException {
-        List<Person> people = DataService.getPeople();
+//    @Test
+//    public void testPredicate() throws IOException {
+//        List<Person> people = DataService.getPeople();
+//
+//        Predicate<Person> predicate = new Predicate<Person>() {
+//            @Override
+//            public boolean test(Person person) {
+//                return person.getGender().equalsIgnoreCase("Male");
+//            }
+//        };
+//
+//        for (Person person : people) {
+//            if (predicate.test(person)) {
+//                System.out.println(person.getLastName() + " Gender: " + person.getGender());
+//            }
+//        }
+//    }
 
-        Predicate<Person> predicate = new Predicate<Person>() {
-            @Override
-            public boolean test(Person person) {
-                return person.getGender().equalsIgnoreCase("Male");
-            }
-        };
-
-        for (Person person : people) {
-            if (predicate.test(person)) {
-                System.out.println(person.getLastName() + " Gender: " + person.getGender());
-            }
-        }
-    }
+//    @Test
+//    public Person testPredicateWithLambdas() throws IOException {
+//        List<Person> people = DataService.getPeople();
+//
+//        Predicate<Person> predicate = person -> person.getGender()
+//                .equalsIgnoreCase("Male");
+//
+//        people.forEach(person -> {
+//            if (predicate.test(person)) {
+//                System.out.println(person.getLastName() + " Gender: " + person.getGender());
+//                return person;
+//            }
+//        });
+//    }
 
     @Test
     public void testPredicateWithLambdas() throws IOException {
@@ -130,10 +145,12 @@ public class LambdaTest {
         Predicate<Person> predicate = person -> person.getGender()
                 .equalsIgnoreCase("Male");
 
-        people.forEach(person -> {
-            if (predicate.test(person)) {
-                System.out.println(person.getLastName() + " Gender: " + person.getGender());
-            }
-        });
+//        people.forEach(person -> {
+//            if (predicate.test(person)) {
+//                System.out.println(person.getLastName() + " Gender: " + person.getGender());
+//            }
+//        });
+
+        people.forEach(System.out::println);
     }
 }
