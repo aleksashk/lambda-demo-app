@@ -29,4 +29,8 @@ public class DataService {
             return new Gson().fromJson(jsonBuilder.toString(), listType);
         }
     }
+
+    public static void printString() {
+        System.out.println("Print our String.");
+    }
 }

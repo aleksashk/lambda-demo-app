@@ -153,4 +153,15 @@ public class LambdaTest {
 
         people.forEach(System.out::println);
     }
+
+
+    //reference method
+
+    @Test
+    public void referenceMethod() {
+//        Thread thread = new Thread(() -> DataService.printString());
+
+        Thread thread = new Thread(DataService::printString);
+        thread.start();
+    }
 }
