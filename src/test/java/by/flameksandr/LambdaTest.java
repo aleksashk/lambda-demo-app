@@ -1,5 +1,6 @@
 package by.flameksandr;
 
+import by.flameksandr.interfaces.MyFunctionalInterface;
 import by.flameksandr.objects.Person;
 import by.flameksandr.services.DataService;
 import org.junit.jupiter.api.Test;
@@ -52,5 +53,11 @@ public class LambdaTest {
         };
 
         new Thread(r1).start();
+    }
+
+    @Test
+    public void testInterface() {
+        MyFunctionalInterface myFunctionalInterface = () -> System.out.println("Message from functional interface.");
+        myFunctionalInterface.printMessage();
     }
 }
