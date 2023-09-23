@@ -7,7 +7,6 @@ import by.flameksandr.services.DataService;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -88,5 +87,18 @@ public class LambdaTest {
         for (Person person : people) {
             System.out.println(person.getLastName());
         }
+    }
+
+    //sort with lambda
+
+    Comparator<Person> comparator = (o1, o2) -> o2.getLastName().compareToIgnoreCase(o1.getLastName());
+
+    @Test
+    public void collectionsSortWithLambdas() throws IOException {
+        List<Person> people = DataService.getPeople();
+
+        people.sort(comparator);
+
+        people.forEach(o -> System.out.println(o.getLastName()));
     }
 }
