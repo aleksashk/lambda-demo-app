@@ -168,4 +168,14 @@ public class LambdaTest {
         people.sort(DataService::compareId);
         people.forEach(System.out::println);
     }
+
+    //instance method
+
+    @Test
+    public void instanceMethod() throws IOException {
+        List<Person> people = DataService.getPeople();
+        DataService dataService = new DataService();
+        people.sort(dataService::instanceMethodCompareId);
+        people.forEach(System.out::println);
+    }
 }

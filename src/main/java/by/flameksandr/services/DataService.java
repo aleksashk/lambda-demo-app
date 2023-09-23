@@ -38,4 +38,9 @@ public class DataService {
         Integer id = p2.getId();
         return id.compareTo(p1.getId());
     }
+
+    public int instanceMethodCompareId(Person p1, Person p2) {
+        Integer id = p1.getId();
+        return id.compareTo(p2.getId());
+    }
 }
