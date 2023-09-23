@@ -122,4 +122,18 @@ public class LambdaTest {
             }
         }
     }
+
+    @Test
+    public void testPredicateWithLambdas() throws IOException {
+        List<Person> people = DataService.getPeople();
+
+        Predicate<Person> predicate = person -> person.getGender()
+                .equalsIgnoreCase("Male");
+
+        people.forEach(person -> {
+            if (predicate.test(person)) {
+                System.out.println(person.getLastName() + " Gender: " + person.getGender());
+            }
+        });
+    }
 }
