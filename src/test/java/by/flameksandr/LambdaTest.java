@@ -7,6 +7,8 @@ import by.flameksandr.services.DataService;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -66,8 +68,25 @@ public class LambdaTest {
     public void multiArgInterface() {
         MultiArgInterface multiArgInterface = (m, n) -> {
             int sum = m + n;
-            System.out.println("Sum: " +sum);
+            System.out.println("Sum: " + sum);
         };
         multiArgInterface.sum(10, -3);
+    }
+
+
+    @Test
+    public void collectionsLamdbas() throws IOException {
+        List<Person> people = DataService.getPeople();
+
+        //sort
+        people.sort(new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getLastName().compareToIgnoreCase(o2.getLastName());
+            }
+        });
+        for (Person person : people) {
+            System.out.println(person.getLastName());
+        }
     }
 }
