@@ -36,15 +36,21 @@ public class LambdaTest {
 
         //functional interface
 
-        Runnable r1 = () -> {
-            System.out.println("Running thread r1");
-        };
+        Runnable r1 = () -> System.out.println("Running thread r1");
 
-        Runnable r2 = () -> {
-            System.out.println("Running thread r2");
-        };
+        Runnable r2 = () -> System.out.println("Running thread r2");
 
         new Thread(r1).start();
         new Thread(r2).start();
+    }
+
+    @Test
+    public void multiCommand() {
+        Runnable r1 = () -> {
+            System.out.println("Line 1");
+            System.out.println("Line 2");
+        };
+
+        new Thread(r1).start();
     }
 }
