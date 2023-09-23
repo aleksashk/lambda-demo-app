@@ -99,6 +99,6 @@ public class LambdaTest {
 
         people.sort(comparator);
 
-        people.forEach(o -> System.out.println(o.getLastName()));
+        people.forEach(person -> System.out.println(person.getLastName()));
     }
 }
