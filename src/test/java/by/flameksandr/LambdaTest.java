@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -100,5 +101,25 @@ public class LambdaTest {
         people.sort(comparator);
 
         people.forEach(person -> System.out.println(person.getLastName()));
+    }
+
+    //predicate
+
+    @Test
+    public void testPredicate() throws IOException {
+        List<Person> people = DataService.getPeople();
+
+        Predicate<Person> predicate = new Predicate<Person>() {
+            @Override
+            public boolean test(Person person) {
+                return person.getGender().equalsIgnoreCase("Male");
+            }
+        };
+
+        for (Person person : people) {
+            if (predicate.test(person)) {
+                System.out.println(person.getLastName() + " Gender: " + person.getGender());
+            }
+        }
     }
 }
