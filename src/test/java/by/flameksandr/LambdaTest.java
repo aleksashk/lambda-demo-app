@@ -1,5 +1,6 @@
 package by.flameksandr;
 
+import by.flameksandr.interfaces.MultiArgInterface;
 import by.flameksandr.interfaces.MyFunctionalInterface;
 import by.flameksandr.objects.Person;
 import by.flameksandr.services.DataService;
@@ -59,5 +60,14 @@ public class LambdaTest {
     public void testInterface() {
         MyFunctionalInterface myFunctionalInterface = () -> System.out.println("Message from functional interface.");
         myFunctionalInterface.printMessage();
+    }
+
+    @Test
+    public void multiArgInterface() {
+        MultiArgInterface multiArgInterface = (m, n) -> {
+            int sum = m + n;
+            System.out.println("Sum: " +sum);
+        };
+        multiArgInterface.sum(10, -3);
     }
 }
