@@ -158,10 +158,14 @@ public class LambdaTest {
     //reference method
 
     @Test
-    public void referenceMethod() {
+    public void referenceMethod() throws IOException {
 //        Thread thread = new Thread(() -> DataService.printString());
 
         Thread thread = new Thread(DataService::printString);
         thread.start();
+
+        List<Person> people = DataService.getPeople();
+        people.sort(DataService::compareId);
+        people.forEach(System.out::println);
     }
 }

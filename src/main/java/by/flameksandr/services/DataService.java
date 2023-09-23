@@ -33,4 +33,9 @@ public class DataService {
     public static void printString() {
         System.out.println("Print our String.");
     }
+
+    public static int compareId(Person p1, Person p2) {
+        Integer id = p2.getId();
+        return id.compareTo(p1.getId());
+    }
 }
